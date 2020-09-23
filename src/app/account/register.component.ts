@@ -21,12 +21,12 @@ export class RegisterComponent implements OnInit {
     ) { }
 
     ngOnInit() {
+       
         this.form = this.formBuilder.group({
             firstName: ['', Validators.required],
             lastName: ['', Validators.required],
             username: ['', Validators.required, Validators.email],
             password: ['', [Validators.required, Validators.minLength(6)]],
-            confirmPassword: ['', [Validators.required]],
             roles: ['']
         });
         this.roles = this.getRoles();
@@ -54,7 +54,6 @@ export class RegisterComponent implements OnInit {
         }
 
         this.loading = true;
-        console.log(this.form.value)
         this.accountService.register(this.form.value)
             .pipe(first())
             .subscribe({
