@@ -17,10 +17,10 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="roles">Role</label> <br>
-                <select  class="form-control"  formControlName="roles" id="roles">
-                  <option *ngFor="let role of roles; let i = index" [selected] = "roles[i].name == Buyer" [value]="roles[i].name">
-                    {{roles[i].name}}
+                <label for="Role">Role</label> <br>
+                <select  class="form-control"  formControlName="Role" id="Role">
+                  <option *ngFor="let role of Role; let i = index" [selected] = "Role[i].name == Buyer" [value]="Role[i].name">
+                    {{Role[i].name}}
                   </option>
                 </select>
             </div>
@@ -29,7 +29,7 @@
                 <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
                 <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
                     <div *ngIf="f.username.errors.required">Email is required</div>
-                    <div *ngIf="f.username.errors.username">Email must be a valid email address</div>
+                    <div *ngIf="f.username.errors.email">Email must be a valid email address</div>
                 </div>
             </div>
             <div class="form-group">

@@ -32,6 +32,7 @@ export class HomeComponent implements OnInit, AfterViewInit{
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+  highestBid: boolean = false;
 
  
     constructor(
@@ -62,12 +63,9 @@ export class HomeComponent implements OnInit, AfterViewInit{
     }
 
     ngOnInit() {
-      console.log ()
-      console.log(this.hideRow(5));
-        // this.auctionService.getDummyAuction().subscribe(data => {
-        // });
+        //To load Data after every 20 seconds 
        
-      // this.interval = setInterval(() => { 
+      // setInterval(() => { 
       //     this.loadAuction(); 
       // }, 20000);
     }

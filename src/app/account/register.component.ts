@@ -10,7 +10,7 @@ export class RegisterComponent implements OnInit {
     form: FormGroup;
     loading = false;
     submitted = false;
-    roles = []
+    Role = []
 
     constructor(
         private formBuilder: FormBuilder,
@@ -27,9 +27,9 @@ export class RegisterComponent implements OnInit {
             lastName: ['', Validators.required],
             username: ['', Validators.required, Validators.email],
             password: ['', [Validators.required, Validators.minLength(6)]],
-            roles: ['']
+            Role: ['']
         });
-        this.roles = this.getRoles();
+        this.Role = this.getRoles();
     }
 
     getRoles() {

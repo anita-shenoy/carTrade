@@ -15,7 +15,6 @@ export class JwtInterceptor implements HttpInterceptor {
         const isLoggedIn = user && user.token;
         const isApiUrl = request.url.startsWith(environment.apiUrl);
          if (isLoggedIn) {
-            console.log("setting header")
             request = request.clone({
                 setHeaders: {
                     'UserId': `${user.username}`,
@@ -24,8 +23,6 @@ export class JwtInterceptor implements HttpInterceptor {
                 }
             });
         }
-        console.log('Intercepted HTTP call', request);
-
         return next.handle(request);
     }
 }

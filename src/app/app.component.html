@@ -3,7 +3,7 @@
   <app-header *ngIf="user"></app-header> 
     <div class="navbar-nav navbar" style=" padding-top: 50px;">
       <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
-      <a class="nav-item nav-link" *ngIf="user.roles === 'Admin'" routerLink="/users" routerLinkActive="active">Users</a>
+      <a class="nav-item nav-link" *ngIf="user.Role === 'Admin'" routerLink="/users" routerLinkActive="active">Users</a>
       <a class="nav-item nav-link" (click)="logout()">Logout</a>
   </div>
 </nav>
@@ -15,5 +15,5 @@
   <alert></alert>
   <router-outlet></router-outlet>
   <!-- footer -->
-  <app-footer></app-footer>
+  <app-footer *ngIf="user"></app-footer>
 </div>

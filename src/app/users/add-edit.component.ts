@@ -12,7 +12,7 @@ export class AddEditComponent implements OnInit {
     isAddMode: boolean;
     loading = false;
     submitted = false;
-    roles = [];
+    Role = [];
 
     constructor(
         private formBuilder: FormBuilder,
@@ -23,7 +23,6 @@ export class AddEditComponent implements OnInit {
     ) {}
 
     ngOnInit() {
-        console.log( this.route.snapshot.params['id'])
         this.id = this.route.snapshot.params['id'];
         this.isAddMode = !this.id;
         
@@ -38,7 +37,7 @@ export class AddEditComponent implements OnInit {
         this.editform = this.formBuilder.group({
             firstName: ['', Validators.required],
             lastName: ['', Validators.required],
-            roles: [''],
+            Role: [''],
             username: ['', Validators.required,Validators.email],
             password: ['', passwordValidators],
             
@@ -49,7 +48,7 @@ export class AddEditComponent implements OnInit {
                 .pipe(first())
                 .subscribe(x => this.editform.patchValue(x));
         }
-        this.roles = this.getRoles();
+        this.Role = this.getRoles();
     }
 
     getRoles() {
