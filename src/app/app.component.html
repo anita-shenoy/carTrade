@@ -1,8 +1,9 @@
 <!-- nav -->
-<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="user">
-  <div class="navbar-nav">
+<nav class=" navbar-expand navbar-dark bg-dark" style="height: 100px; " *ngIf="user">
+  <app-header *ngIf="user"></app-header> 
+    <div class="navbar-nav navbar" style=" padding-top: 50px;">
       <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
-      <a class="nav-item nav-link" *ngIf="user.Role === 'Admin'" routerLink="/users" routerLinkActive="active">Users</a>
+      <a class="nav-item nav-link" *ngIf="user.roles === 'Admin'" routerLink="/users" routerLinkActive="active">Users</a>
       <a class="nav-item nav-link" (click)="logout()">Logout</a>
   </div>
 </nav>
@@ -10,7 +11,7 @@
 <!-- main app container -->
 <div class="app-container" [ngClass]="{ 'bg-light': user }">
    <!-- header -->
-   <app-header *ngIf="user"></app-header>
+   
   <alert></alert>
   <router-outlet></router-outlet>
   <!-- footer -->
