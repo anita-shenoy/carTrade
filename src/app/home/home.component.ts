@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit, AfterViewInit{
 
   loggedUser: User;
   interval: any;
-  displayedColumns: string[] = ['username','imageUrl', 'transmissionType', 'fuel', 'remainingTime', 'Bid'];
+  displayedColumns: string[] = ['username','imageUrl', 'transmissionType', 'fuel', 'remainingTime', 'Bid', 'vehicleInfo'];
   dataSource: MatTableDataSource<UserData>;
   users: any[];
   showModal: boolean;
@@ -41,20 +41,20 @@ export class HomeComponent implements OnInit, AfterViewInit{
       ) {
         this.loggedUser = this.accountService.userValue;
          this.users =[
-        {"username":"Anita","VehicleName":"Tesla","imageUrl": "https://res.cloudinary.com/castle-tech-gmbh/image/upload/v1585643431/rnw94zmxknvgcboluqyn.jpg","transmissionType": "ez","fuel":"Petrol", "remainingTime": "8993339", "Bid": "570.59"},
-        {"username":"Anita123","VehicleName":"Fiat","imageUrl": "https://res.cloudinary.com/castle-tech-gmbh/image/upload/v1585643431/rnw94zmxknvgcboluqyn.jpg","transmissionType": "ez","fuel":"Petrol", "remainingTime": "899933", "Bid": "508.89"},
-        {"username":"Anita123","VehicleName":"Hyundai","imageUrl": "https://res.cloudinary.com/castle-tech-gmbh/image/upload/v1585643431/rnw94zmxknvgcboluqyn.jpg","transmissionType": "ez","fuel":"Petrol", "remainingTime": "1956","Bid": "500.89"},
-        {"username":"dealership@alwaysAvailable.com","VehicleName":"mercedes","imageUrl": "https://res.cloudinary.com/castle-tech-gmbh/image/upload/v1585643431/rnw94zmxknvgcboluqyn.jpg","transmissionType": "ez","fuel":"Petrol", "remainingTime": "2000", "Bid": "5022.89"},
-        {"username":"Anita123","VehicleName":"Audi","imageUrl": "https://res.cloudinary.com/castle-tech-gmbh/image/upload/v1585643431/rnw94zmxknvgcboluqyn.jpg","transmissionType": "ez","fuel":"Petrol", "remainingTime": "10", "Bid": "564.89"},
-        {"username":"Anita123","VehicleName":"Audi","imageUrl": "https://res.cloudinary.com/castle-tech-gmbh/image/upload/v1585643431/rnw94zmxknvgcboluqyn.jpg","transmissionType": "Auto","fuel":"Petrol", "remainingTime": "6000", "Bid": "502.89"},
-        {"username":"dealership@alwaysAvailable.com","VehicleName":"Ferrari","imageUrl": "https://res.cloudinary.com/castle-tech-gmbh/image/upload/v1585643431/rnw94zmxknvgcboluqyn.jpg","transmissionType": "ez","fuel":"Petrol", "remainingTime": "6254", "Bid": "502.89"},
-        {"username":"dealership@alwaysAvailable.com","VehicleName":"Tesla","imageUrl": "https://res.cloudinary.com/castle-tech-gmbh/image/upload/v1585643431/rnw94zmxknvgcboluqyn.jpg","transmissionType": "ez","fuel":"Petrol", "remainingTime": "7859", "Bid": "562.89"},
-        {"username":"dealership@alwaysAvailable.com","VehicleName":"SmartCar","imageUrl": "https://res.cloudinary.com/castle-tech-gmbh/image/upload/v1585643431/rnw94zmxknvgcboluqyn.jpg","transmissionType": "ez","fuel":"Petrol", "remainingTime": "4789", "Bid": "402.89"},
-        {"username":"dealership@alwaysAvailable.com","VehicleName":"Suzuki","imageUrl": "https://res.cloudinary.com/castle-tech-gmbh/image/upload/v1585643431/rnw94zmxknvgcboluqyn.jpg","transmissionType": "ez","fuel":"Petrol", "remainingTime": "4569", "Bid": "400.89"},
-        {"username":"dealership@alwaysAvailable.com","VehicleName":"Porsche","imageUrl": "https://res.cloudinary.com/castle-tech-gmbh/image/upload/v1585643431/rnw94zmxknvgcboluqyn.jpg","transmissionType": "ez","fuel":"Petrol", "remainingTime": "1758", "Bid": "508.89"},
-        {"username":"dealership@alwaysAvailable.com","VehicleName":"Fiat","imageUrl": "https://res.cloudinary.com/castle-tech-gmbh/image/upload/v1585643431/rnw94zmxknvgcboluqyn.jpg","transmissionType": "Auto","fuel":"Petrol", "remainingTime": "454545", "Bid": "570.89"},
-        {"username":"dealership@alwaysAvailable.com","VehicleName":"Audi","imageUrl": "https://res.cloudinary.com/castle-tech-gmbh/image/upload/v1585643431/rnw94zmxknvgcboluqyn.jpg","transmissionType": "ez","fuel":"Petrol", "remainingTime": "2323", "Bid": "564.89"},
-        {"username":"dealership@alwaysAvailable.com","VehicleName":"Audi","imageUrl": "https://res.cloudinary.com/castle-tech-gmbh/image/upload/v1585643431/rnw94zmxknvgcboluqyn.jpg","transmissionType": "ez","fuel":"Petrol", "remainingTime": "35", "Bid": "564.89"},
+        {"username":"Anita","VehicleName":"Tesla","imageUrl": "https://res.cloudinary.com/castle-tech-gmbh/image/upload/v1585643431/rnw94zmxknvgcboluqyn.jpg","transmissionType": "ez","fuel":"Petrol", "remainingTime": "8993339", "Bid": "570.59","vehicleInfo":[{"Torque":"1380 U/min" ,"Range": "B58B30A","Engine":"3316d"}]},
+        {"username":"Anita123","VehicleName":"Fiat","imageUrl": "https://res.cloudinary.com/castle-tech-gmbh/image/upload/v1585643431/rnw94zmxknvgcboluqyn.jpg","transmissionType": "ez","fuel":"Petrol", "remainingTime": "899933", "Bid": "508.89","vehicleInfo":[{"Torque":"1380 U/min" ,"Range": "BX8B30A","Engine":"316d"}]},
+        {"username":"Anita123","VehicleName":"Hyundai","imageUrl": "https://res.cloudinary.com/castle-tech-gmbh/image/upload/v1585643431/rnw94zmxknvgcboluqyn.jpg","transmissionType": "ez","fuel":"Petrol", "remainingTime": "1956","Bid": "500.89","vehicleInfo":[{"Torque":"1380 U/min" ,"Range": "BX8B3ZA","Engine":"896d"}]},
+        {"username":"dealership@alwaysAvailable.com","VehicleName":"mercedes","imageUrl": "https://res.cloudinary.com/castle-tech-gmbh/image/upload/v1585643431/rnw94zmxknvgcboluqyn.jpg","transmissionType": "ez","fuel":"Petrol", "remainingTime": "2000", "Bid": "5022.89","vehicleInfo":[{"Torque":"139980 U/min" ,"Range": "BX82B30A","Engine":"316d"}]},
+        {"username":"Anita123","VehicleName":"Audi","imageUrl": "https://res.cloudinary.com/castle-tech-gmbh/image/upload/v1585643431/rnw94zmxknvgcboluqyn.jpg","transmissionType": "ez","fuel":"Petrol", "remainingTime": "10", "Bid": "564.89","vehicleInfo":[{"Torque":"1380 U/min" ,"Range": "BX8B30A","Engine":"316d"}]},
+        {"username":"Anita123","VehicleName":"Audi","imageUrl": "https://res.cloudinary.com/castle-tech-gmbh/image/upload/v1585643431/rnw94zmxknvgcboluqyn.jpg","transmissionType": "Auto","fuel":"Petrol", "remainingTime": "6000", "Bid": "502.89","vehicleInfo":[{"Torque":"1380 U/min" ,"Range": "BX8B30A","Engine":"316d"}]},
+        {"username":"dealership@alwaysAvailable.com","VehicleName":"Ferrari","imageUrl": "https://res.cloudinary.com/castle-tech-gmbh/image/upload/v1585643431/rnw94zmxknvgcboluqyn.jpg","transmissionType": "ez","fuel":"Petrol", "remainingTime": "6254", "Bid": "502.89","vehicleInfo":[{"Torque":"1380 U/min" ,"Range": "BX8B30A","Engine":"316d"}]},
+        {"username":"dealership@alwaysAvailable.com","VehicleName":"Tesla","imageUrl": "https://res.cloudinary.com/castle-tech-gmbh/image/upload/v1585643431/rnw94zmxknvgcboluqyn.jpg","transmissionType": "ez","fuel":"Petrol", "remainingTime": "7859", "Bid": "562.89","vehicleInfo":[{"Torque":"1380 U/min" ,"Range": "BX8B30A","Engine":"316d"}]},
+        {"username":"dealership@alwaysAvailable.com","VehicleName":"SmartCar","imageUrl": "https://res.cloudinary.com/castle-tech-gmbh/image/upload/v1585643431/rnw94zmxknvgcboluqyn.jpg","transmissionType": "ez","fuel":"Petrol", "remainingTime": "4789", "Bid": "402.89","vehicleInfo":[{"Torque":"1380 U/min" ,"Range": "BX8B30A","Engine":"316d"}]},
+        {"username":"dealership@alwaysAvailable.com","VehicleName":"Suzuki","imageUrl": "https://res.cloudinary.com/castle-tech-gmbh/image/upload/v1585643431/rnw94zmxknvgcboluqyn.jpg","transmissionType": "ez","fuel":"Petrol", "remainingTime": "4569", "Bid": "400.89","vehicleInfo":[{"Torque":"1380 U/min" ,"Range": "BX8B30A","Engine":"316d"}]},
+        {"username":"dealership@alwaysAvailable.com","VehicleName":"Porsche","imageUrl": "https://res.cloudinary.com/castle-tech-gmbh/image/upload/v1585643431/rnw94zmxknvgcboluqyn.jpg","transmissionType": "ez","fuel":"Petrol", "remainingTime": "1758", "Bid": "508.89","vehicleInfo":[{"Torque":"1380 U/min" ,"Range": "BX8B30A","Engine":"316d"}]},
+        {"username":"dealership@alwaysAvailable.com","VehicleName":"Fiat","imageUrl": "https://res.cloudinary.com/castle-tech-gmbh/image/upload/v1585643431/rnw94zmxknvgcboluqyn.jpg","transmissionType": "Auto","fuel":"Petrol", "remainingTime": "454545", "Bid": "570.89","vehicleInfo":[{"Torque":"1380 U/min" ,"Range": "BX8B30A","Engine":"316d"}]},
+        {"username":"dealership@alwaysAvailable.com","VehicleName":"Audi","imageUrl": "https://res.cloudinary.com/castle-tech-gmbh/image/upload/v1585643431/rnw94zmxknvgcboluqyn.jpg","transmissionType": "ez","fuel":"Petrol", "remainingTime": "2323", "Bid": "564.89","vehicleInfo":[{"Torque":"1380 U/min" ,"Range": "BX8B30A","Engine":"316d"}]},
+        {"username":"dealership@alwaysAvailable.com","VehicleName":"Audi","imageUrl": "https://res.cloudinary.com/castle-tech-gmbh/image/upload/v1585643431/rnw94zmxknvgcboluqyn.jpg","transmissionType": "ez","fuel":"Petrol", "remainingTime": "35", "Bid": "564.89","vehicleInfo":[{"Torque":"1380 U/min" ,"Range": "BX8B30A","Engine":"316d"}]},
 
       
         ]
@@ -63,6 +63,12 @@ export class HomeComponent implements OnInit, AfterViewInit{
     }
 
     ngOnInit() {
+
+      this.auctionService.getDummyAuction()
+    .subscribe(data => {
+      console.log(data)
+    })
+
         //To load Data after every 20 seconds 
        
       // setInterval(() => { 

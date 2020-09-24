@@ -28,6 +28,18 @@
         <th mat-header-cell *matHeaderCellDef > Fuel  </th>
         <td mat-cell *matCellDef="let row"> {{row.fuel}} </td>
       </ng-container>
+      
+      <!-- vehicleInfo Column -->
+      <ng-container matColumnDef="vehicleInfo">
+        <th style="padding-left: 50px;" mat-header-cell *matHeaderCellDef > VehicleInfo  </th>
+        <td mat-cell style="text-align: left;" *matCellDef="let row"> 
+            <ul *ngFor="let info of row.vehicleInfo">
+            <li > Torque: {{info.Torque}}</li>
+            <li> Range: {{info.Range}}</li>
+            <li> Engine: {{info.Engine}}</li>
+        </ul>
+         </td>
+      </ng-container>
 
   
       <!-- Remaining time Column -->
